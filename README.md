@@ -1,5 +1,3 @@
-
-
 # PSPTool
 
 PSPTool is a Swiss Army knife for dealing with firmware of the **AMD Secure Processor** (formerly known as *Platform Security Processor* or **PSP**). It locates AMD firmware inside  **UEFI images** as part of BIOS updates targeting **AMD platforms**. 
@@ -7,6 +5,26 @@ PSPTool is a Swiss Army knife for dealing with firmware of the **AMD Secure Proc
 It is based on reverse-engineering efforts of AMD's **proprietary filesystem** used to **pack firmware blobs** into **UEFI Firmware Images**. These are usually 16MB in size and can be conveniently parsed by [UEFITool](https://github.com/LongSoft/UEFITool). However, all binary blobs by AMD are located in padding volumes unparsable by UEFITool.
 
 PSPTool favourably works with UEFI images as obtained through BIOS updates.
+
+
+## Rages list of mayor things TODO
+- [x] Make it work in Pycharm with Python 3.9
+- [ ] Explain how someone can contribute top this pile of code.   
+- [ ] Figure out an architecture for this pile of code.
+- [ ] Unit testing would be nice!
+- [ ] Refactor stuff to make it reasonable.
+- [ ] Add helpful error outputs instead of just the fricken helpfile.  
+- [ ] Figure out where the code is that extracts parts
+- [ ] Figure out where and why that breaks with different inputs. 
+- [ ] implement a general "replace everything" method that takes all the PSP parts from one File and puts them into the other.
+
+### Rambling
+Everything has a reference on itself as 
+```python
+self.blob
+```
+to the hole UEFI image and appears to parse itself out of that. 
+
 
 ## Installation
 
@@ -288,4 +306,3 @@ Info: Parsed and stored a database of 14028942 rows.
 
 [...]
 ```
-
