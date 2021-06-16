@@ -18,13 +18,13 @@ import string
 import struct
 import traceback
 
-from .utils import NestedBuffer
-from .utils import shannon
-from .utils import chunker
-from .utils import zlib_decompress, zlib_compress
-from .utils import decrypt
-from .utils import print_warning
-from .utils import round_to_int
+from utils import NestedBuffer
+from utils import shannon
+from utils import chunker
+from utils import zlib_decompress, zlib_compress
+from utils import decrypt
+from utils import print_warning
+from utils import round_to_int
 
 from IPython import embed
 

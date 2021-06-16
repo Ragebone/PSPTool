@@ -16,8 +16,8 @@
 
 import struct
 
-from .utils import NestedBuffer, chunker, fletcher32, print_warning
-from .entry import Entry, PubkeyEntry
+from utils import NestedBuffer, chunker, fletcher32, print_warning
+from entry import Entry, PubkeyEntry
 
 from typing import List
 

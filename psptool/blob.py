@@ -18,9 +18,9 @@ import re
 
 from typing import List
 
-from .utils import NestedBuffer, print_warning
-from .entry import Entry, PubkeyEntry
-from .fet import Fet
+from utils import NestedBuffer, print_warning
+from entry import Entry, PubkeyEntry
+from fet import Fet
 
 
 class Blob(NestedBuffer):

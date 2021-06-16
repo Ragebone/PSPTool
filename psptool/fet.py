@@ -15,8 +15,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import re
-from .utils import NestedBuffer, chunker, print_warning
-from .directory import Directory
+from utils import NestedBuffer, chunker, print_warning
+from directory import Directory
 
 from typing import List
 

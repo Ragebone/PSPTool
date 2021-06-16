@@ -17,9 +17,9 @@
 import sys
 import os
 
-from .psptool import PSPTool
-from .utils import ObligingArgumentParser, print_warning, print_error_and_exit
-from .entry import PubkeyEntry, HeaderEntry
+from psptool import PSPTool
+from utils import ObligingArgumentParser, print_warning, print_error_and_exit
+from entry import PubkeyEntry, HeaderEntry
 
 from argparse import RawTextHelpFormatter, SUPPRESS
 

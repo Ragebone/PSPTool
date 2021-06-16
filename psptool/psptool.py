@@ -17,9 +17,9 @@
 from prettytable import PrettyTable
 import json
 
-from .entry import HeaderEntry
-from .blob import Blob
-from .utils import print_warning
+from entry import HeaderEntry
+from blob import Blob
+from utils import print_warning
 
 
 class PSPTool:
