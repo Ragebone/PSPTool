@@ -77,12 +77,14 @@ def main():
         '', '']), action='store_true')
 
     args = parser.parse_args()
+
+    # Creates One large PSP object that nests itself.
     psp = PSPTool.from_file(args.file, verbose=args.verbose)
     output = None
 
     if args.extract_entry:
         if args.directory_index is not None and args.entry_index is not None:
-            entry = psp.blob.fets[0].directories[args.directory_index].entries[args.entry_index]
+            entry = psp.blob.FirmwareEntryTables[0].directories[args.directory_index].entries[args.entry_index]
 
             if args.decompress:
                 if not entry.compressed:
@@ -100,9 +102,9 @@ def main():
         else:
             if args.entry_index is None:  # if neither directory_index nor entry_index are specified
                 if args.directory_index is not None:
-                    directories = [psp.blob.fets[0].directories[args.directory_index]]
+                    directories = [psp.blob.FirmwareEntryTables[0].directories[args.directory_index]]
                 else:
-                    directories = psp.blob.fets[0].directories
+                    directories = psp.blob.FirmwareEntryTables[0].directories
 
                 if args.no_duplicates is False:
                     for dir_index, directory in enumerate(directories):
@@ -153,7 +155,7 @@ def main():
             with open(args.subfile, 'rb') as f:
                     sub_binary = f.read()
 
-            entry = psp.blob.fets[0].directories[args.directory_index].entries[args.entry_index]
+            entry = psp.blob.FirmwareEntryTables[0].directories[args.directory_index].entries[args.entry_index]
             entry.move_buffer(entry.get_address(), len(sub_binary))
             entry.set_bytes(0, len(sub_binary), sub_binary)
 

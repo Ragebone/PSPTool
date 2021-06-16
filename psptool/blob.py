@@ -37,7 +37,7 @@ class Blob(NestedBuffer):
         self.raw_blob = buffer
 
         self.pubkeys = {}
-        self.fets = []
+        self.FirmwareEntryTables = []
         self.unique_entries = set()
 
         self.dual_rom = False
@@ -78,10 +78,10 @@ class Blob(NestedBuffer):
         if m is None:
             raise self.NoFirmwareEntryTableError
         fet_offset = m.start() + 4
-        self.fets.append(Fet(self, fet_offset, self.agesa_version))
+        self.FirmwareEntryTables.append(Fet(self, fet_offset, self.agesa_version))
         if self.dual_rom:
             if self[fet_offset + 0x1000000:fet_offset + 0x1000004] == self._FIRMWARE_ENTRY_MAGIC:
-                self.fets.append(Fet(self, fet_offset + 0x1000000, self.agesa_version_second))
+                self.FirmwareEntryTables.append(Fet(self, fet_offset + 0x1000000, self.agesa_version_second))
             else:
                 print_warning(f"Found two AGESA versions strings, but only one firmware entry table")
 
@@ -113,7 +113,7 @@ class Blob(NestedBuffer):
     def get_entries_by_type(self) -> List[Entry]:
         entries = []
 
-        for fet in self.fets:
+        for fet in self.FirmwareEntryTables:
             for _dir in fet.directories:
                 for entry in _dir:
                     if entry.type == type:

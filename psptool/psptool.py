@@ -50,7 +50,7 @@ class PSPTool:
             f.write(self.blob.get_buffer())
 
     def ls(self, verbose=False):
-        for fet in self.blob.fets:
+        for fet in self.blob.FirmwareEntryTables:
             for index, directory in enumerate(fet.directories):
                 t = PrettyTable(['Directory', 'Addr', 'Type', 'Magic', 'Secondary Directory'])
                 t.add_row([
@@ -126,7 +126,7 @@ class PSPTool:
 
     def ls_json(self, verbose=False):
         data = []
-        for fet in self.blob.fets:
+        for fet in self.blob.FirmwareEntryTables:
             for index, directory in enumerate(fet.directories):
                 t = PrettyTable(['Directory', 'Addr', 'Type', 'Magic', 'Secondary Directory'])
                 d = {
